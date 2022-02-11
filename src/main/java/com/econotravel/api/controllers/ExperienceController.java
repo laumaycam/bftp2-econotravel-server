@@ -21,7 +21,7 @@ public class ExperienceController {
         this.experienceRepository = experienceRepository;
     }
 
-    @GetMapping
+    @GetMapping("/experiences")
     public List<Experience> allExperiences() {
 
         return experienceRepository.findAll();
@@ -31,6 +31,15 @@ public class ExperienceController {
     @PostMapping
     public Experience createExperience(@RequestBody Experience experience) {
         return experienceRepository.save(experience);
+    }
+
+    @PutMapping ("/experiences")
+    public Experience updateExperience(@RequestBody Experience experience) {
+        return experienceRepository.save(experience);
+    }
+    @DeleteMapping ("/experiences")
+    public void deleteExperience(@PathVariable Long id){
+        experienceRepository.deleteById(id);
     }
 
 }

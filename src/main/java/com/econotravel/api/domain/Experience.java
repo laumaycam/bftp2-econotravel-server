@@ -1,20 +1,21 @@
 package com.econotravel.api.domain;
 import javax.persistence.*;
 
-import javax.persistence.Entity;
+
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-@Entity
-@Table(name = "experiences")
-public class Experience {
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
 
+@Table(name = "experiences")
+public class Experience implements Serializable {
+
+
+
+    @Lob
+    private String description;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -22,14 +23,20 @@ public class Experience {
     private Long id;
     private String name;
     private BigDecimal price;
-    private String duration;
+    private int duration;
+    private String accesibility;
     private String tags;
 
-    @Lob
-    private String description;
 
 
-    public Experience() { }
+    public Experience(String name, BigDecimal price, int duration, String accesibility, String tags, String description) {
+        this.name = name;
+        this.price = price;
+        this.duration = duration;
+        this.accesibility = accesibility;
+        this.tags = tags;
+        this.description = description;
+    }
 
     public Long getId() {
         return id;
@@ -55,12 +62,20 @@ public class Experience {
         this.price = price;
     }
 
-    public String getDuration() {
+    public int getDuration() {
         return duration;
     }
 
-    public void setDuration(String duration) {
+    public void setDuration(int duration) {
         this.duration = duration;
+    }
+
+    public String getAccesibility() {
+        return accesibility;
+    }
+
+    public void setAccesibility(String accesibility) {
+        this.accesibility = accesibility;
     }
 
     public String getTags() {
@@ -79,13 +94,9 @@ public class Experience {
         this.description = description;
     }
 
-    public Experience (String name, BigDecimal price, String duration, String tags, String description){
-        this.name = name;
-        this.price = price;
-        this.duration = duration;
-        this.tags = tags;
-        this.description = description;
+
 
     }
 
-}
+
+
