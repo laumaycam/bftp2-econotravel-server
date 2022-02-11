@@ -1,7 +1,6 @@
 package com.econotravel.api.controllers;
 
-import com.econotravel.api.Experience;
-
+import com.econotravel.api.domain.Experience;
 import com.econotravel.api.repositories.ExperienceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +20,7 @@ public class ExperienceController {
         this.experienceRepository = experienceRepository;
     }
 
-    @GetMapping("/experiences")
+    @GetMapping
     public List<Experience> allExperiences() {
 
         return experienceRepository.findAll();
@@ -33,11 +32,11 @@ public class ExperienceController {
         return experienceRepository.save(experience);
     }
 
-    @PutMapping ("/experiences")
+    @PutMapping
     public Experience updateExperience(@RequestBody Experience experience) {
         return experienceRepository.save(experience);
     }
-    @DeleteMapping ("/experiences")
+    @DeleteMapping
     public void deleteExperience(@PathVariable Long id){
         experienceRepository.deleteById(id);
     }

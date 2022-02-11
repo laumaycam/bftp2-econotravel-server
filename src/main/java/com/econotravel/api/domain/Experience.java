@@ -9,8 +9,9 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 
+@Entity
 @Table(name = "experiences")
-public class Experience implements Serializable {
+public class Experience {
 
 
 
@@ -18,8 +19,7 @@ public class Experience implements Serializable {
     private String description;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-
+    @Column(name = "id")
     private Long id;
     private String name;
     private BigDecimal price;
@@ -36,6 +36,10 @@ public class Experience implements Serializable {
         this.accesibility = accesibility;
         this.tags = tags;
         this.description = description;
+    }
+
+    public Experience() {
+
     }
 
     public Long getId() {
