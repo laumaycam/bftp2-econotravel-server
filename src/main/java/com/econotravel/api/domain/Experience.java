@@ -16,6 +16,9 @@ public class Experience implements Serializable {
 
     @Lob
     private String description;
+
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -26,6 +29,7 @@ public class Experience implements Serializable {
     private int duration;
     private String accesibility;
     private String tags;
+
 
 
 
