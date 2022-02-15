@@ -32,13 +32,13 @@ public class ExperienceController {
         return experienceRepository.save(experience);
     }
 
-    @PutMapping
+   /* @PutMapping
     public Experience updateExperience(@RequestBody Experience experience) {
         return experienceRepository.save(experience);
     }
     @DeleteMapping
     public void deleteExperience(@PathVariable Long id){
         experienceRepository.deleteById(id);
-    }
+    }*/
 
 }
