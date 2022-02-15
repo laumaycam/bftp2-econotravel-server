@@ -1,5 +1,6 @@
 package com.econotravel.api;
 
+import com.econotravel.api.domain.Experience;
 import com.econotravel.api.repositories.ExperienceRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -47,14 +48,18 @@ class Bftp2EconotravelServerApplicationTests {
                 .andDo(print());
     }
 
-    private void addSampleExperiences() {
-        List<Experience> movies = List.of(
+    private void addSampleExperiences() throws Exception{
+        mockMvc.perform(post("/api/experiences")
+                .param("Paseo en Bicicleta por Montseny")
+                .param("Descubre la costa en barco de vela")
+
+       /* List<Experience> experiences = List.of(
                 new Experience("Paseo por el Montseny"),
                 new Experience("Visita a la sagrada familia")
         );
 
-        experienceRepository.saveAll(movies);
-    }
+        experienceRepository.saveAll(experiences);
+    }*/
 
     @Test
     void createsNewExperiences() throws Exception {
