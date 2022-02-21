@@ -29,7 +29,7 @@ public class Experience {
     private String tags;
     @Lob
     private String description;
-    private String images;
+    private String image;
 
 
 
@@ -38,15 +38,15 @@ public class Experience {
 
     }
 
-    public Experience(Long id, String name, BigDecimal price, int duration, String accessibility, String tags, String description, String images) {
-        this.id = id;
+    public Experience(String name, BigDecimal price, int duration, String accessibility, String tags, String description, String image) {
+
         this.name = name;
         this.price = price;
         this.duration = duration;
         this.accessibility = accessibility;
         this.tags = tags;
         this.description = description;
-        this.images = images;
+        this.image = image;
     }
 
     public Long getId() {
@@ -105,12 +105,12 @@ public class Experience {
         this.description = description;
     }
 
-    public void setImages(String coverImage) {
-        this.images = images;
+    public void setImage(String coverImage) {
+        this.image = image;
     }
 
-    public String getImages() {
-        return images;
+    public String getImage() {
+        return image;
     }
 
 
