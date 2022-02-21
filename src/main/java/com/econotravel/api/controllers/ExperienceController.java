@@ -32,13 +32,16 @@ public class ExperienceController {
         return experienceRepository.save(experience);
     }
 
-   /* @PutMapping
+   /*@PutMapping
     public Experience updateExperience(@RequestBody Experience experience) {
         return experienceRepository.save(experience);
-    }
-    @DeleteMapping
-    public void deleteExperience(@PathVariable Long id){
-        experienceRepository.deleteById(id);
     }*/
+
+    @DeleteMapping("/delete/{id}")
+    public Experience deleteExperienceById(@PathVariable Long id) {
+        Experience experience = experienceRepository.findById(id).orElseThrow(ExperienceNotFoundException::new);
+        experienceRepository.deleteById(id);
+        return experience;
+    }
 
 }
