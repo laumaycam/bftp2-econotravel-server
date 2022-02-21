@@ -17,16 +17,6 @@ import java.util.Objects;
 @Table(name = "experiences")
 public class Experience {
 
-
-
-<<<<<<< HEAD
-    @Lob
-    private String description;
-
-
-=======
->>>>>>> 24a469aca03beff761f091298669dae708ed927b
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -44,22 +34,19 @@ public class Experience {
 
 
 
-<<<<<<< HEAD
-    public Experience(String name, BigDecimal price, int duration, String accesibility, String tags, String description) {
-=======
-    public Experience(String name, BigDecimal price, int duration, String accessibility, String tags, String description, String images) {
->>>>>>> 24a469aca03beff761f091298669dae708ed927b
+    public Experience() {
+
+    }
+
+    public Experience(Long id, String name, BigDecimal price, int duration, String accessibility, String tags, String description, String images) {
+        this.id = id;
         this.name = name;
         this.price = price;
         this.duration = duration;
         this.accessibility = accessibility;
         this.tags = tags;
         this.description = description;
-
-    }
-
-    public Experience() {
-
+        this.images = images;
     }
 
     public Long getId() {
